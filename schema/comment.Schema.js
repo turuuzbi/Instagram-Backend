@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const commentSchema = new mongoose.Schema({
-  userId: { type: Schema.Types.ObjectId, required: true },
-  comment: { type: String },
+  comment: { type: String, required: true },
+  user: { type: Schema.Types.ObjectId, ref: "users", required: true },
+  post: { type: Schema.Types.ObjectId, ref: "posts", required: true },
   createdAt: { type: Date, default: Date.now() },
   updatedAt: { type: Date, default: Date.now() },
 });

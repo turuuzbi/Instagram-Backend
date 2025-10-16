@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import userRouter from "./route/user.route.js";
 import postRouter from "./route/post.route.js";
+import commentRouter from "./route/comment.route.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -19,6 +20,7 @@ connectionToDB();
 
 app.use("/", userRouter);
 app.use("/post", postRouter);
+app.use("/comment", commentRouter);
 
 app.listen(PORT, () => {
   console.log(`Server: http://localhost:${PORT}`);

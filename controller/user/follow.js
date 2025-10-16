@@ -5,6 +5,9 @@ export const toggleFollow = async (req, res) => {
   const followingUserId = req.user._id;
 
   const followingUser = await userModel.findById(followingUserId);
+  console.log("followedUserId:", followedUserId);
+  console.log("followingUserId:", followingUserId);
+
   const followedUser = await userModel.findById(followedUserId);
 
   if (followedUserId === followingUserId) {
