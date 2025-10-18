@@ -5,9 +5,6 @@ export const toggleFollow = async (req, res) => {
   const followingUserId = req.user._id;
 
   const followingUser = await userModel.findById(followingUserId);
-  console.log("followedUserId:", followedUserId);
-  console.log("followingUserId:", followingUserId);
-
   const followedUser = await userModel.findById(followedUserId);
 
   if (followedUserId === followingUserId) {
@@ -19,13 +16,13 @@ export const toggleFollow = async (req, res) => {
   if (isFollowed) {
     await userModel.findByIdAndUpdate(followingUserId, {
       following: followingUser.following.filter(
-        (thing) => thing.toString() !== followedUserId
+        (id) => id.toString() !== followedUserId
       ),
     });
 
-    await userModel.findByIdAndUpdate(followingUserId, {
+    await userModel.findByIdAndUpdate(followedUserId, {
       followers: followedUser.followers.filter(
-        (thing) => thing.toString() !== followingUserId
+        (id) => id.toString() !== followingUserId
       ),
     });
   } else {
