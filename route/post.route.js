@@ -9,6 +9,7 @@ const postRouter = express.Router();
 
 postRouter.get("/", getPosts);
 postRouter.get("/user/:userId", authMiddleware, getUserPosts);
+postRouter.delete("/delete"), authMiddleware, 
 postRouter.post("/generate", authMiddleware, generatePost);
 postRouter.post("/toggleLike/:postId", authMiddleware, toggleLike);
 
