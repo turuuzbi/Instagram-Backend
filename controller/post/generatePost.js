@@ -6,7 +6,7 @@ export const generatePost = async (request, response) => {
   const newPost = await postModel.create({
     user: user._id,
     images,
-    caption,
+    caption, 
   });
   response.status(200).json({ newPost });
 };
