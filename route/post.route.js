@@ -1,11 +1,11 @@
 import express from "express";
 import { generatePost } from "../controller/post/generatePost.js";
-import { getUserPosts } from "../controller/post/getuserposts.js";
-import { getPosts } from "../controller/post/getposts.js";
+import { getUserPosts } from "../controller/post/getUserPosts.js";
+import { getPosts } from "../controller/post/getPosts.js";
 import { authMiddleware } from "../middleware/authMiddleware.js";
 import { toggleLike } from "../controller/post/toggleLike.js";
-import { deletePost } from "../controller/post/deletepost.js";
-import { editPost } from "../controller/post/editpost.js";
+import { deletePost } from "../controller/post/deletePost.js";
+import { editPost } from "../controller/post/editPost.js";
 
 const postRouter = express.Router();
 
