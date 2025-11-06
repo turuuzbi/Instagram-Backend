@@ -5,4 +5,3 @@ export const getUser = async (req, res) => {
   const user = await userModel.findById(userId);
   res.status(200).json(user);
 };
-  
